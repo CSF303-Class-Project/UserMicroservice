@@ -9,8 +9,4 @@ public interface UserDAO {
     User findByID(int theId);
     void deleteById(int theId);
     void updateUserEnabledStatus(int id, boolean enabled); 
-    
-
-    
-
 }

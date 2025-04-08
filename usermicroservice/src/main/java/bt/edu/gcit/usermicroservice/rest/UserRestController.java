@@ -99,12 +99,12 @@ public User save(
 
 
 
-    @GetMapping("/users/{id}") // New GET endpoint
+    @PutMapping("/users/{id}") // New GET endpoint
     public User updateUser(@PathVariable int id, @RequestBody User updatedUser) {
         return userService.updateUser(id, updatedUser);
     }
 
-     @DeleteMapping("/users/{id}")  // New DELETE endpoint
+    @DeleteMapping("/users/{id}")  // New DELETE endpoint
     public void deleteUser(@PathVariable int id) {
         userService.deleteById(id);  // Call the service method to delete the user
     }
