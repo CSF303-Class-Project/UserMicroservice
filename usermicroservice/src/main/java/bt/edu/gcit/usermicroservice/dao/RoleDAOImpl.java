@@ -33,6 +33,6 @@ public class RoleDAOImpl implements RoleDAO {
 
     @Override
     public void delete(Role role) {
-        entityManager.remove(role); // Remove role from the database
+        entityManager.remove(role); 
     }
 }
