@@ -6,57 +6,56 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+import java.util.List;
 
 @Entity
 @Table(name = "roles")
 public class Role {
+   public Role() {
+      // Default constructor
+   }
 
-    // Default constructor
-    public Role() {
-    }
+   public Role(String name, String description) {
+      this.name = name;
+      this.description = description;
+   }
 
-    // Parameterized constructor
-    public Role(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private int id;
 
-    // ID field with auto-generation strategy
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+   @Column(name = "name", nullable = false, unique = true, length = 40)
+   private String name;
 
-    // Name field with constraints
-    @Column(name = "name", nullable = false, unique = true, length = 40)
-    private String name;
+   @Column(name = "description", nullable = false, length = 150)
+   private String description;
 
-    // Description field with constraints
-    @Column(name = "description", nullable = false, length = 150)
-    private String description;
+   // Getters
+   public int getId() {
+      return id;
+   }
 
-    // Getters and Setters
+   public String getName() {
+      return name;
+   }
 
-    public int getId() {
-        return id;
-    }
+   public String getDescription() {
+      return description;
+   }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+   // Setters
+   public void setId(int id) {
+      this.id = id;
+   }
 
-    public String getName() {
-        return name;
-    }
+   public void setName(String name) {
+      this.name = name;
+   }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+   public void setDescription(String description) {
+      this.description = description;
+   }
 }
